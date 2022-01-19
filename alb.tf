@@ -5,7 +5,7 @@ resource "aws_lb" "public" {
 //  security_groups    = [aws_security_group.lb_sg.id]
   subnets            =data.terraform_remote_state.vpc.outputs.PUBLIC_SUBNETS
    tags = {
-    Environment = "production"
+    Environment = "${var.ENV}-public-alb"
   }
 }
 
@@ -16,6 +16,6 @@ resource "aws_lb" "private" {
   //  security_groups    = [aws_security_group.lb_sg.id]
   subnets            = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNETS
   tags = {
-    Environment = "production"
+    Environment = "${var.ENV}-public-alb"
   }
 }
