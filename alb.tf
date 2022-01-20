@@ -16,6 +16,6 @@ resource "aws_lb" "private" {
   security_groups    = [aws_security_group.private_lb.id]
   subnets            = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNETS
   tags = {
-    Environment = "${var.ENV}-public-alb"
+    Environment = "${var.ENV}-private-alb"
   }
 }
